@@ -10,5 +10,6 @@ export const theme = {
     primary: '#07c',
     secondary: '#05a',
     muted: '#f6f6f6',
+    active: '#ffd700',
   },
 };
