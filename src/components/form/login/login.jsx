@@ -1,7 +1,7 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
-import { Label, Forma } from '../registration.styled';
+import { Label, Forma } from '../registrationForm/registration.styled';
 
 const schema = yup.object().shape({
   login: yup.string().required(),
@@ -18,12 +18,13 @@ const initialValues = {
 
 export const LoginForm = () => {
   const handleSubmit = (values, { resetForm }) => {
-    const { login, password, confirmPassword, email } = values;
+    const { login, password } = values;
 
     const newUser = {
       login,
       password,
     };
+    console.log(newUser);
     resetForm();
   };
 

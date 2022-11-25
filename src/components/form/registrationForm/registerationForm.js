@@ -1,9 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import { register } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
-import { Label, Forma } from '../registration.styled';
+import { Label, Forma } from './registration.styled';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
