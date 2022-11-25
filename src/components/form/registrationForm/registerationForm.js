@@ -1,10 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { register } from 'redux/operations';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
 import { Label, Forma } from '../registration.styled';
 
 const schema = yup.object().shape({
-  login: yup.string().required(),
+  name: yup.string().required(),
   email: yup.string().min(6).max(30).required(),
   password: yup.string().min(6).max(16).required(),
   confirmPassword: yup
@@ -13,23 +15,25 @@ const schema = yup.object().shape({
 });
 
 const initialValues = {
-  login: '',
+  name: '',
   password: '',
   confirmPassword: '',
   email: '',
 };
 
 export const Registration = () => {
+  const dispath = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
-    const { login, password, confirmPassword, email } = values;
+    const { name, email, password } = values;
 
     const newUser = {
-      login,
+      name,
       email,
       password,
     };
-    resetForm();
     console.log(newUser);
+    dispath(register(newUser));
+    resetForm();
   };
 
   return (
@@ -40,8 +44,8 @@ export const Registration = () => {
     >
       <Forma autoComplete="off">
         <Label htmlFor="login">
-          <span>Login</span> <Field type="text" name="login" />
-          <ErrorMessage name="login" />
+          <span>Login</span> <Field type="text" name="name" />
+          <ErrorMessage name="name" />
         </Label>
         <Label htmlFor="email">
           <span>Email</span> <Field type="text" name="email" />

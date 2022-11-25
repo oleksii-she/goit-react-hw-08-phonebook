@@ -2,10 +2,24 @@ import axios from 'axios';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://637bd7d86f4024eac21976cf.mockapi.io/contacts';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
+// реєстрація користуввача
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('/users/signup', credentials);
+
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const fetchContacts = createAsyncThunk(
-  'contacts /fetchAll',
+  'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
