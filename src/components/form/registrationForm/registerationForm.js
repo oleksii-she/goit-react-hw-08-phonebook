@@ -31,7 +31,7 @@ export const Registration = () => {
       email,
       password,
     };
-    console.log(newUser);
+    // console.log(newUser);
     dispath(register(newUser));
     resetForm();
   };
