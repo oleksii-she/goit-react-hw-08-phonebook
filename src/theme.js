@@ -1,5 +1,5 @@
 export const theme = {
-  space: [0, 4, 8, 16, 32, 64],
+  space: [0, 4, 8, 16, 25, 32, 64],
   fontSizes: [12, 14, 16, 20, 24, 32, 42],
   fontWeights: [300, 400, 500, 600],
   fonts: ['Roboto', 'Times New Roman', "'Times New Roman', Times, serif"],

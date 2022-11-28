@@ -4,8 +4,8 @@ import { ContactsList } from 'components/contacts/contactsList';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
-import { getError, getIsLoading } from 'redux/selectors';
+import { fetchContacts } from 'redux/contacts/operations';
+import { getError, getIsLoading } from 'redux/contacts/selectors';
 
 const Contacts = () => {
   const isLoading = useSelector(getIsLoading);

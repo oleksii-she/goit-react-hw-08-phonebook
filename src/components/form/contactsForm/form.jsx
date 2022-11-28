@@ -2,8 +2,8 @@ import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { Label, Button } from './form.styled';
-import { getContacts } from 'redux/selectors';
-import { addContacts } from 'redux/operations';
+import { getContacts } from 'redux/contacts/selectors';
+import { addContacts } from 'redux/contacts/operations';
 
 export const FormData = () => {
   const dispatch = useDispatch();

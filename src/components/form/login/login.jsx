@@ -2,29 +2,29 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 import { Label, Forma } from '../registrationForm/registration.styled';
-
+import { login } from 'redux/Authorization/operations';
+import { useDispatch } from 'react-redux';
 const schema = yup.object().shape({
-  login: yup.string().required(),
+  email: yup.string().min(6).max(30).required(),
   password: yup.string().min(6).max(16).required(),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
 
 const initialValues = {
-  login: '',
+  email: '',
   password: '',
 };
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
-    const { login, password } = values;
+    const { email, password } = values;
 
     const newUser = {
-      login,
+      email,
       password,
     };
     console.log(newUser);
+    dispatch(login(newUser));
     resetForm();
   };
 
@@ -35,17 +35,13 @@ export const LoginForm = () => {
       validationSchema={schema}
     >
       <Forma autoComplete="off">
-        <Label htmlFor="login">
-          <span>Login</span> <Field type="text" name="login" />
-          <ErrorMessage name="login" />
+        <Label htmlFor="email">
+          <span>Email</span> <Field type="text" name="email" />
+          <ErrorMessage name="email" />
         </Label>
         <Label htmlFor="password">
           <span>Password</span> <Field type="password" name="password" />
           <ErrorMessage name="password" />
-        </Label>
-        <Label htmlFor="password">
-          <span>Password</span> <Field type="password" name="confirmPassword" />
-          <ErrorMessage name="confirmPassword" />
         </Label>
 
         <button type="submit">Submit</button>

@@ -1,9 +1,9 @@
-import { Formik, Field, ErrorMessage } from 'formik';
-import { register } from 'redux/operations';
+import { Formik, ErrorMessage } from 'formik';
+import { register } from 'redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
-import { Label, Forma } from './registration.styled';
+import { Label, Forma, Section, Span, Input } from './registration.styled';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -37,32 +37,34 @@ export const Registration = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={schema}
-    >
-      <Forma autoComplete="off">
-        <Label htmlFor="login">
-          <span>Login</span> <Field type="text" name="name" />
-          <ErrorMessage name="name" />
-        </Label>
-        <Label htmlFor="email">
-          <span>Email</span> <Field type="text" name="email" />
-          <ErrorMessage name="email" />
-          <ErrorMessage name="email" />
-        </Label>
-        <Label htmlFor="password">
-          <span>Password</span> <Field type="password" name="password" />
-          <ErrorMessage name="password" />
-        </Label>
-        <Label htmlFor="password">
-          <span>Password</span> <Field type="password" name="confirmPassword" />
-          <ErrorMessage name="confirmPassword" />
-        </Label>
+    <Section>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
+      >
+        <Forma autoComplete="off">
+          <Label htmlFor="login">
+            <Span>Login</Span> <Input type="text" name="name" />
+            <ErrorMessage name="name" />
+          </Label>
+          <Label htmlFor="email">
+            <Span>Email</Span> <Input type="text" name="email" />
+            <ErrorMessage name="email" />
+          </Label>
+          <Label htmlFor="password">
+            <Span>Password</Span> <Input type="password" name="password" />
+            <ErrorMessage name="password" />
+          </Label>
+          <Label htmlFor="password">
+            <Span>Password</Span>{' '}
+            <Input type="password" name="confirmPassword" />
+            <ErrorMessage name="confirmPassword" />
+          </Label>
 
-        <button type="submit">Submit</button>
-      </Forma>
-    </Formik>
+          <button type="submit">Submit</button>
+        </Forma>
+      </Formik>
+    </Section>
   );
 };
