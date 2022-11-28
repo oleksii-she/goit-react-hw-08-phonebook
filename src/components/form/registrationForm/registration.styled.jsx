@@ -21,11 +21,21 @@ export const Section = styled.section`
 `;
 export const Span = styled.span`
   padding-bottom: ${p => p.theme.space[1]}px;
-  color: #4a88a1;
+  color: ${p => p.theme.colors.registr};
 `;
 
 export const Input = styled(Field)`
   border-radius: ${p => p.theme.space[2]}px;
   padding: ${p => p.theme.space[1]}px;
-  max-width: 300px;
+  padding-left: ${p => p.theme.space[2]}px;
+  padding-right: ${p => p.theme.space[2]}px;
+  font-family: ${p => p.theme.space['Times New Roman']}px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+
+  box-sizing: border-box; ;
+`;
+
+export const ErroStyle = styled.div`
+  color: ${p => p.theme.colors.error};
 `;

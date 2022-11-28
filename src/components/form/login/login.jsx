@@ -1,6 +1,6 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
+import toast, { Toaster } from 'react-hot-toast';
 import { Label, Forma } from '../registrationForm/registration.styled';
 import { login } from 'redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
@@ -23,8 +23,17 @@ export const LoginForm = () => {
       email,
       password,
     };
-    console.log(newUser);
+
+    // if (email.trim() === '' || password === '') {
+    //   return toast.error('Type something', {
+    //     position: 'top-right',
+    //   });
+    // }
     dispatch(login(newUser));
+    toast.error('Type something', {
+      position: 'top-right',
+    });
+
     resetForm();
   };
 
