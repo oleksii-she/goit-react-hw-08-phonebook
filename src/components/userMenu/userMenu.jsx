@@ -13,7 +13,7 @@ export const UserMenu = () => {
   const { user } = useAuth();
   return (
     <Box>
-      <Text>Welcome, {user.name}</Text>
+      <Text>Welcome, {user.email}</Text>
       <BtnLogOut onClick={handleLogOut}>
         <TbLogout color="white" />
       </BtnLogOut>

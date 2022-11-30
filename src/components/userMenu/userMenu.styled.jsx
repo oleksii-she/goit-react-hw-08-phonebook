@@ -20,4 +20,8 @@ export const BtnLogOut = styled.button`
   align-items: center;
   margin: 0 auto;
   width: auto;
+
+  &:hover {
+    fill: red;
+  }
 `;
