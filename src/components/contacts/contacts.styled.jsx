@@ -69,6 +69,10 @@ export const Box = styled.div`
     align-content: center;
     align-items: center;
   }
+
+  @media (max-width: 720px) {
+    padding-top: ${p => p.theme.space[5]}px;
+  }
 `;
 
 export const PhoneBookBox = styled.div`
@@ -98,5 +102,9 @@ export const OpenModal = styled.button`
   &:hover {
     background-color: ${p => p.theme.colors.primary};
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @media (max-width: 720px) {
+    margin-bottom: ${p => p.theme.space[4]}px;
   }
 `;
