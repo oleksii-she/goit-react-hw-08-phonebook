@@ -10,11 +10,9 @@ export const List = styled.ul`
   align-items: center;
   margin: 0;
   margin-bottom: ${p => p.theme.space[3]}px;
-  @media (min-width: 1199px) {
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
-  }
+  height: 50vh;
+  width: 100%;
+  overflow-y: scroll;
 `;
 
 export const Item = styled.li`
