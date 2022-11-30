@@ -46,3 +46,9 @@ export const LinkRegisterStyled = styled(NavLink)`
     transition: cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 `;
+
+export const BoxPageLoader = styled.div`
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+`;

@@ -1,5 +1,11 @@
+import { NotFoundError } from 'components/notFound/notFoundError';
+
 const NotFound = () => {
-  return <h2>ERROR404</h2>;
+  return (
+    <>
+      <NotFoundError />
+    </>
+  );
 };
 
 export default NotFound;
