@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-  max-width: 300px;
   display: flex;
-  padding: ${p => p.theme.space[2]}px;
+  padding: ${p => p.theme.space[3]}px;
+
   border: 1px solid rgb(221, 221, 221);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
   margin-bottom: ${p => p.theme.space[3]}px;
-  height: 50vh;
+  max-height: 50vh;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const Item = styled.li`
