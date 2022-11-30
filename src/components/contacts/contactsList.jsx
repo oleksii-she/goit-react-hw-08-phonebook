@@ -1,6 +1,6 @@
 import { ContactsItem } from './contactsItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { List } from './contacts.styled';
+import { ContactsTitle, List, ContactsBox } from './contacts.styled';
 import { getContacts, getFilter } from 'redux/contacts/selectors';
 import { deleteContacts } from 'redux/contacts/operations';
 export const ContactsList = () => {
@@ -18,15 +18,18 @@ export const ContactsList = () => {
   const contactsData = FindContact();
 
   return (
-    <List>
-      {contactsData.map(data => (
-        <ContactsItem
-          key={data.id}
-          name={data.name}
-          number={data.number}
-          onClick={() => dispatch(deleteContacts(data.id))}
-        />
-      ))}
-    </List>
+    <>
+      <ContactsTitle>Contacts</ContactsTitle>
+      <List>
+        {contactsData.map(data => (
+          <ContactsItem
+            key={data.id}
+            name={data.name}
+            number={data.number}
+            onClick={() => dispatch(deleteContacts(data.id))}
+          />
+        ))}
+      </List>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import { Formik, ErrorMessage } from 'formik';
-import toast from 'react-hot-toast';
+
 import { register } from 'redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
@@ -11,6 +11,7 @@ import {
   Span,
   Input,
   ErroStyle,
+  Button,
 } from './registration.styled';
 
 const schema = yup.object().shape({
@@ -81,7 +82,7 @@ export const Registration = () => {
             </ErroStyle>
           </Label>
 
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </Forma>
       </Formik>
     </Section>

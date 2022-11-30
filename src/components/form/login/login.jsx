@@ -1,7 +1,15 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import toast, { Toaster } from 'react-hot-toast';
-import { Label, Forma } from '../registrationForm/registration.styled';
+
+import {
+  Label,
+  Forma,
+  Section,
+  Span,
+  Input,
+  ErroStyle,
+  Button,
+} from '../registrationForm/registration.styled';
 import { login } from 'redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 const schema = yup.object().shape({
@@ -24,37 +32,35 @@ export const LoginForm = () => {
       password,
     };
 
-    // if (email.trim() === '' || password === '') {
-    //   return toast.error('Type something', {
-    //     position: 'top-right',
-    //   });
-    // }
     dispatch(login(newUser));
-    toast.error('Type something', {
-      position: 'top-right',
-    });
 
     resetForm();
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={schema}
-    >
-      <Forma autoComplete="off">
-        <Label htmlFor="email">
-          <span>Email</span> <Field type="text" name="email" />
-          <ErrorMessage name="email" />
-        </Label>
-        <Label htmlFor="password">
-          <span>Password</span> <Field type="password" name="password" />
-          <ErrorMessage name="password" />
-        </Label>
+    <Section>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
+      >
+        <Forma autoComplete="off">
+          <Label htmlFor="email">
+            <Span>Email</Span> <Input type="text" name="email" />
+            <ErroStyle>
+              <ErrorMessage name="email" />
+            </ErroStyle>
+          </Label>
+          <Label htmlFor="password">
+            <Span>Password</Span> <Input type="password" name="password" />
+            <ErroStyle>
+              <ErrorMessage name="password" />
+            </ErroStyle>
+          </Label>
 
-        <button type="submit">Submit</button>
-      </Forma>
-    </Formik>
+          <Button type="submit">Submit</Button>
+        </Forma>
+      </Formik>
+    </Section>
   );
 };

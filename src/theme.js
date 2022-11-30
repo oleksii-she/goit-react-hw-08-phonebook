@@ -13,5 +13,6 @@ export const theme = {
     active: '#ffd700',
     registr: ' #4a88a1',
     error: '#b51a0c',
+    header: ' #0b1945',
   },
 };

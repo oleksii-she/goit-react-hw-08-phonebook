@@ -9,7 +9,7 @@ import { Navigation } from 'components/navigation/navigatoin';
 import { AuthNav } from './authNav/authNav';
 export const Header = () => {
   const { IsLoggedIn } = useAuth();
-  console.log(IsLoggedIn);
+
   return (
     <>
       <HeaderStyled>
