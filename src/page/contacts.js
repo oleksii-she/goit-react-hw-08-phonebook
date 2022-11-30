@@ -2,6 +2,7 @@ import { FormData } from 'components/form/contactsForm/form';
 import { Filter } from 'components/filter/Filter';
 import { ContactsList } from 'components/contacts/contactsList';
 
+import { BeatLoader } from 'react-spinners';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
@@ -16,6 +17,7 @@ import { ModalMenu } from 'components/modal/modal';
 import { useMatchMedia } from 'components/hooks/useMatcMedia';
 
 import { useState } from 'react';
+import { Loader } from 'components/loader/loader';
 const Contacts = () => {
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
@@ -42,10 +44,9 @@ const Contacts = () => {
         <OpenModal onClick={() => setShovModal(true)}>Add contact</OpenModal>
       )}
       <div>
-        {isLoading && !error && <b>Request in progress...</b>}
-
         <ContactsList />
         {items.length > 8 ? <Filter /> : null}
+        {isLoading && !error && <Loader />}
       </div>
       {shovModal && (
         <ModalMenu onClose={closeModal}>
