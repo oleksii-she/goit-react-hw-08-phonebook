@@ -35,7 +35,7 @@ const initialValues = {
 export const Registration = () => {
   const dispath = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
-    const { name, email, password, confirmPassword } = values;
+    const { name, email, password } = values;
 
     const newUser = {
       name,
