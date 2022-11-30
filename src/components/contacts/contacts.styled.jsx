@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Delete } from '@styled-icons/fluentui-system-filled/Delete';
 export const List = styled.ul`
   display: flex;
   padding: ${p => p.theme.space[3]}px;
@@ -36,15 +36,16 @@ export const Button = styled.button`
   font-size: small;
   cursor: pointer;
   background: none;
+`;
 
+export const DeleteIcon = styled(Delete)`
+  color: ${p => p.theme.colors.registr};
   &:hover {
-    background-color: ${p => p.theme.colors.primary};
+    color: ${p => p.theme.colors.error};
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 `;
-export const Span = styled.span`
-  /* border: 1px solid rgb(221, 221, 221); */
-`;
+
 export const ContactsTitle = styled.h2`
   margin: 0;
   margin-bottom: 12px;

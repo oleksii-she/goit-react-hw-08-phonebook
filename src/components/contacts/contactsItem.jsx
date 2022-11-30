@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { Item, Button, Span } from './contacts.styled';
-import { MdDelete } from 'react-icons/md';
+import { Item, Button, Span, DeleteIcon } from './contacts.styled';
+
 export const ContactsItem = ({ name, number, onClick }) => {
   return (
     <Item>
-      {name}:<Span>{number}</Span>
+      {name}:<span>{number}</span>
       <Button onClick={onClick}>
-        <MdDelete />
+        <DeleteIcon color="red" size="18px" />
       </Button>
     </Item>
   );

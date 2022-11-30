@@ -1,6 +1,5 @@
-import { TbLogout } from 'react-icons/tb';
 import { useAuth } from 'components/hooks/useAuth';
-import { Box, Text, BtnLogOut } from './userMenu.styled';
+import { Box, Text, BtnLogOut, HoverBtn } from './userMenu.styled';
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/Authorization/operations';
 export const UserMenu = () => {
@@ -15,7 +14,7 @@ export const UserMenu = () => {
     <Box>
       <Text>Welcome, {user.email}</Text>
       <BtnLogOut onClick={handleLogOut}>
-        <TbLogout color="white" />
+        <HoverBtn color="white" size="18px" />
       </BtnLogOut>
     </Box>
   );
