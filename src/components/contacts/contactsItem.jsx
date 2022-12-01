@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Item, Button, Span, DeleteIcon } from './contacts.styled';
+import { Item, Button, DeleteIcon } from './contacts.styled';
 
 export const ContactsItem = ({ name, number, onClick }) => {
   return (
