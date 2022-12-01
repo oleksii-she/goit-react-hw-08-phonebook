@@ -16,7 +16,7 @@ export const ContactsList = () => {
   };
 
   const contactsData = FindContact();
-  console.log(items.length);
+
   return (
     <>
       <ContactsTitle>Contacts</ContactsTitle>

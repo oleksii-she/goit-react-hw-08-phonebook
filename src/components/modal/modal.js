@@ -25,11 +25,11 @@ export const ModalMenu = ({ children, onClose }) => {
 
   return createPortal(
     <div className={css.Overlay} onClick={e => onCloseOverlay(e)}>
-      <button
-        className={css.button_close}
-        onClick={e => onCloseOverlay(e)}
-      ></button>
       <div className={css.Modal}>
+        <button
+          className={css.button_close}
+          onClick={e => onCloseOverlay(e)}
+        ></button>
         <div className={css.containt_box}>{children}</div>
       </div>
     </div>,
