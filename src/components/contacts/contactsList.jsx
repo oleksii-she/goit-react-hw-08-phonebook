@@ -16,20 +16,22 @@ export const ContactsList = () => {
   };
 
   const contactsData = FindContact();
-
+  console.log(items.length);
   return (
     <>
       <ContactsTitle>Contacts</ContactsTitle>
-      <List>
-        {contactsData.map(data => (
-          <ContactsItem
-            key={data.id}
-            name={data.name}
-            number={data.number}
-            onClick={() => dispatch(deleteContacts(data.id))}
-          />
-        ))}
-      </List>
+      {items.length !== 0 && (
+        <List>
+          {contactsData.map(data => (
+            <ContactsItem
+              key={data.id}
+              name={data.name}
+              number={data.number}
+              onClick={() => dispatch(deleteContacts(data.id))}
+            />
+          ))}
+        </List>
+      )}
     </>
   );
 };
