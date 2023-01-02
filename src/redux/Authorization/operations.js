@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -35,6 +36,7 @@ export const login = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
+      Notify.failure(`Ooops - ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
