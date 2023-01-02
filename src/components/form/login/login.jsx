@@ -13,7 +13,7 @@ import {
 import { login } from 'redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 const schema = yup.object().shape({
-  email: yup.string().min(6).max(30).required(),
+  email: yup.string().min(6).max(30).required().email(),
   password: yup.string().min(6).max(16).required(),
 });
 
