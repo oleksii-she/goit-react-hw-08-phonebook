@@ -16,7 +16,7 @@ import {
 
 const schema = yup.object().shape({
   name: yup.string().required(),
-  email: yup.string().min(6).max(30).required(),
+  email: yup.string().min(6).max(30).required().email(),
   password: yup.string().min(6).max(16).required(),
 
   confirmPassword: yup
